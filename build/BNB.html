@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Villa Giustina</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet"/>
+    <link href="./css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  </head>
+  <body class="bg-gray-100 text-gray-800 font-merriweather overflow-x-hidden">
+    <div id="cookie-banner" class="fixed bottom-0 left-0 w-full bg-gray-800 text-white p-4 text-center hidden" data-translate="cookie-banner">
+      Questo sito utilizza i cookie per migliorare l'esperienza utente.
+      <button id="accept-cookies" class="bg-[#E1A32A] text-white px-4 py-2 ml-6 rounded">Accetta</button>
+      <button id="reject-cookies" class="bg-[#E1A32A] text-white px-4 py-2 ml-3 rounded">Rifiuta</button>
+    </div>    
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full bg-green-950 text-white shadow-md z-50">
+        <div class="absolute right-4 top-2">
+          <div class="relative">
+            <button id="languageMenuButton" class="bg-green-950 text-white text-lg p-2 rounded-lg flex items-center">
+              <img id="languageFlag" src="img/icons8-circolare-italia-38.png" alt="IT" class="w-6 h-6 mr-2">
+              <span id="languageText" class="hover:text-[#E1A32A] transition">ITA</span>
+              <span class="ml-2">&#9662;</span>
+            </button>
+            <ul id="languageMenu"
+              class="hidden absolute w-full bg-green-950 text-white border mt-2 rounded-lg p-2 space-y-2">
+              <li class="cursor-pointer flex items-center hover:text-[#E1A32A] transition" onclick="changeLanguage('ita', 'img/icons8-circolare-italia-38.png')">
+                <img src="img/icons8-circolare-italia-38.png" alt="ITA"
+                  class="w-6 h-6 mr-2">ITA
+              </li>
+              <li class="cursor-pointer flex items-center hover:text-[#E1A32A] transition" onclick="changeLanguage('eng', 'img/icons8-circolare-della-gran-bretagna-38.png')">
+                <img src="img/icons8-circolare-della-gran-bretagna-38.png" alt="ENG" class="w-6 h-6 mr-2">ENG
+              </li>
+              <li class="cursor-pointer flex items-center hover:text-[#E1A32A] transition" onclick="changeLanguage('deu', 'img/icons8-circolare-tedesca-38.png')">
+                <img src="img/icons8-circolare-tedesca-38.png" alt="DEU" class="w-6 h-6 mr-2">DEU
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <button id="menuToggle" class="lg:hidden text-white text-4xl p-3">&#9776;</button>
+
+        <ul class="hidden lg:flex justify-center space-x-24 lg:space-x-28 py-4 text-xl">
+          <li>
+            <a href="#Home" data-translate="home" class="hover:text-[#E1A32A] transition">Home</a>
+          </li>
+          <li>
+            <a href="#Camere" data-translate="rooms" class="hover:text-[#E1A32A] transition">Camere</a>
+          </li>
+          <li>
+            <a href="#Servizi" data-translate="services" class="hover:text-[#E1A32A] transition">Servizi</a>
+          </li>
+          <li>
+            <a href="#Territorio" data-translate="territory" class="hover:text-[#E1A32A] transition">Territorio</a>
+          </li>
+          <li>
+            <a href="#Prenota" data-translate="book" class="hover:text-[#E1A32A] transition">Prenota</a>
+          </li>
+        </ul>
+
+        <ul id="mobileMenu" class="hidden flex flex-col items-center justify-center text-center py-4 space-y-4 text-xl absolute bg-green-950 w-full top-16 left-0">
+          <li>
+            <a href="#Home" data-translate="home" class="hover:text-[#E1A32A] transition">Home</a>
+          </li>
+          <li>
+            <a href="#Camere" data-translate="rooms" class="hover:text-[#E1A32A] transition">Camere</a>
+          </li>
+          <li>
+            <a href="#Servizi" data-translate="services" class="hover:text-[#E1A32A] transition">Servizi</a>
+          </li>
+          <li>
+            <a href="#Territorio" data-translate="territory class="hover:text-[#E1A32A] transition">Territorio</a>
+          </li>
+          <li>
+            <a href="#Prenota" data-translate="book" class="hover:text-[#E1A32A] transition">Prenota</a>
+          </li>
+        </ul>
+    </nav>    
+
+    <!-- Sezione Home -->
+    <section id="Home" class="h-screen flex flex-col items-center justify-center text-center bg-cover bg-center text-white" style="background-image: url('img/casa-moderne.jpg')">
+      <div class="bg-black bg-opacity-70 p-10 rounded-xl">
+        <h1 class="text-6xl font-bold mb-4">Villa Giustina</h1>
+        <p class="text-lg" data-translate="hero">Un luogo di relax immerso nella natura</p>
+      </div>
+    </section>
+
+    <!-- Sezione Camere -->
+    <section id="Camere" class="min-h-screen p-12 text-center">
+      <h1 class="text-5xl font-bold mb-8" data-translate="title-rooms">Le nostre camere</h1>
+      <div class="grid grid-cols-1 2xl:grid-cols-3 gap-6 justify-center">
+        <!-- Camera 1 -->
+        <div class="w-[450px] p-6 bg-white shadow-lg rounded-lg transform hover:scale-105 transition duration-300 mx-auto min-h-[550px] h-full flex flex-col">
+          <h2 class="text-2xl font-semibold mb-4" data-translate="room1">Camera Doppia</h2>
+          <img class="w-full h-64 object-cover rounded-lg mb-4" src="img/camera1.jpeg" alt="Camera 1" />
+          <p class="text-gray-600 text-left w-full" data-translate="description">Descrizione:</p>
+          <ul class="text-gray-600 text-left w-full list-disc pl-5 flex-grow">
+            <li data-translate="room1-d1">Letto matrimoniale (convertibile in due letti singoli)</li>
+            <li data-translate="room1-d2">Bagno privato con doccia spaziosa</li>
+            <li data-translate="room1-d3">Soluzione ideale per coppie, amici o colleghi</li>
+          </ul>          
+          <button onclick="precompilaCamera('camera1')"
+            class="w-full bg-[#E1A32A] text-white font-semibold py-3 rounded-lg hover:bg-[#CF8F1F] transition duration-300 shadow-md mt-5" data-translate="book-now">
+            Prenota ora
+          </button>
+        </div>
+        <!-- Camera 2 -->
+        <div class="w-[450px] p-6 bg-white shadow-lg rounded-lg transform hover:scale-105 transition duration-300 mx-auto min-h-[550px] h-full flex flex-col">
+          <h2 class="text-2xl font-semibold mb-4" data-translate="room2">Camera Matrimoniale</h2>
+          <img class="w-full h-64 object-cover rounded-lg mb-4" src="img/camera2.jpeg" alt="Camera 2" />
+          <p class="text-gray-600 text-left w-full" data-translate="description">Descrizione:</p>
+          <ul class="text-gray-600 text-left w-full list-disc pl-5 flex-grow">
+            <li data-translate="room2-d1">Letto matrimoniale ampio e confortevole</li>
+            <li data-translate="room2-d2">Bagno privato con doccia moderna</li>
+            <li data-translate="room2-d3">Ambiente tranquillo per un soggiorno rilassante</li>
+          </ul>          
+          <button onclick="precompilaCamera('camera2')"
+            class="w-full bg-[#E1A32A] text-white font-semibold py-3 rounded-lg hover:bg-[#CF8F1F] transition duration-300 shadow-md mt-5" data-translate="book-now">
+            Prenota ora
+          </button>
+        </div>
+        <!-- Camera 3 -->
+        <div class="w-[450px] p-6 bg-white shadow-lg rounded-lg transform hover:scale-105 transition duration-300 mx-auto min-h-[550px] h-full flex flex-col">
+          <h2 class="text-2xl font-semibold mb-4" data-translate="room3">Camera Tripla</h2>
+          <img class="w-full h-64 object-cover rounded-lg mb-4" src="img/camera3.jpeg" alt="Camera 3" />
+          <p class="text-gray-600 text-left w-full" data-translate="description">Descrizione:</p>
+          <ul class="text-gray-600 text-left w-full list-disc pl-5 flex-grow">
+            <li data-translate="room3-d1">Letto matrimoniale e un letto singolo per un soggiorno versatile</li>
+            <li data-translate="room3-d2">Bagno privato con vasca, doccia e ampio specchio</li>
+            <li data-translate="room3-d3">Perfetta per famiglie o piccoli gruppi di amici</li>
+          </ul>
+          <button onclick="precompilaCamera('camera3')"
+            class="w-full bg-[#E1A32A] text-white font-semibold py-3 rounded-lg hover:bg-[#CF8F1F] transition duration-300 shadow-md mt-5" data-translate="book-now">
+            Prenota ora
+          </button>
+        </div>
+      </div>
+    </section>    
+    
+    <!-- Sezione Servizi -->
+    <section id="Servizi" class="flex flex-col items-center justify-center min-h-screen p-12 bg-gray-50 text-center">
+      <h1 class="text-5xl font-bold mb-12" data-translate="title-services">I nostri servizi</h1>
+      <div class="bg-black bg-opacity-50 p-8 rounded-2xl max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+    
+          <div class="flex items-center bg-gray-100 shadow-lg rounded-lg p-4">
+            <img src="img/icons8-wi-fi-50.png" alt="Wi-Fi" class="w-12 h-12 mr-4" />
+            <p class="text-xl text-gray-800" data-translate="wifi">Wi-Fi gratuito</p>
+          </div>
+    
+          <div class="flex items-center bg-gray-100 shadow-lg rounded-lg p-4">
+            <img src="img/icons8-persone-in-auto-50.png" alt="Parcheggio" class="w-12 h-12 mr-4" />
+            <p class="text-xl text-gray-800" data-translate="parking">Parcheggio nella proprietà</p>
+          </div>
+    
+          <div class="flex items-center bg-gray-100 shadow-lg rounded-lg p-4">
+            <img src="img/icons8-cibo-50.png" alt="Colazione" class="w-12 h-12 mr-4" />
+            <p class="text-xl text-gray-800" data-translate="breakfast">Colazione inclusa</p>
+          </div>
+    
+          <div class="flex items-center bg-gray-100 shadow-lg rounded-lg p-4">
+            <img src="img/icons8-tv-50.png" alt="TV in camera" class="w-12 h-12 mr-4" />
+            <p class="text-xl text-gray-800" data-translate="tv">TV in ogni camera</p>
+          </div>
+    
+          <div class="flex items-center bg-gray-100 shadow-lg rounded-lg p-4">
+            <img src="img/icons8-raffreddamento-50.png" alt="Aria condizionata" class="w-12 h-12 mr-4" />
+            <p class="text-xl text-gray-800" data-translate="air-conditioning">Aria condizionata</p>
+          </div>
+    
+          <div class="flex items-center bg-gray-100 shadow-lg rounded-lg p-4">
+            <img src="img/icons8-giardino-50.png" alt="Giardino" class="w-12 h-12 mr-4" />
+            <p class="text-xl text-gray-800" data-translate="garden">Ampio giardino</p>
+          </div>
+    
+        </div>
+      </div>
+    </section>
+
+    <section id="Territorio" class="min-h-screen p-12 text-center bg-gray-50">
+      <h1 class="text-5xl font-bold mb-8" data-translate="title-territory">Il nostro territorio</h1>
+      <p class="text-lg max-w-4xl mx-auto" data-translate="territory-description">
+        Scopri le bellezze naturali, gli eventi e le attività che il nostro territorio offre.
+      </p>
+      <div class="bg-black bg-opacity-50 p-8 rounded-2xl max-w-7xl mx-auto mt-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Gorizia -->
+          <a href="https://www.turismofvg.it/info-utili/uffici-turistici/gorizia-infopoint">
+            <div class="bg-gray-100 shadow-lg rounded-lg p-6 hover:scale-105 transition duration-300 min-h-[450px] h-full">
+              <img src="img/Gorizia.jpg" alt="Evento 1" class="w-full h-56 object-cover rounded-lg mb-4" />
+              <h2 class="text-2xl font-semibold mb-2">Gorizia</h2>
+              <p class="text-gray-600" data-translate="territory1">Gorizia, cuore della cultura europea, unisce arte, storia e tradizione.</p>
+            </div>
+          </a>
+
+          <!-- Trieste -->
+          <a href="https://www.turismofvg.it/info-utili/uffici-turistici/trieste-infopoint">
+            <div class="bg-gray-100 shadow-lg rounded-lg p-6 hover:scale-105 transition duration-300 min-h-[450px] h-full">
+              <img src="img/Trieste.jpg" alt="Evento 2" class="w-full h-56 object-cover rounded-lg mb-4" />
+              <h2 class="text-2xl font-semibold mb-2">Trieste</h2>
+              <p class="text-gray-600" data-translate="territory2">Esplora Trieste, una città affacciata sul mare, ricca di storia e cultura.</p>
+            </div>
+          </a>
+
+          <!-- Udine -->
+          <a href="https://www.turismofvg.it/info-utili/uffici-turistici/udine-infopoint">
+            <div class="bg-gray-100 shadow-lg rounded-lg p-6 hover:scale-105 transition duration-300 min-h-[450px] h-full">
+              <img src="img/Udine.jpg" alt="Evento 3" class="w-full h-56 object-cover rounded-lg mb-4" />
+              <h2 class="text-2xl font-semibold mb-2">Udine</h2>
+              <p class="text-gray-600" data-translate="territory3">Udine è una città ricca di storia, con eventi che celebrano l'arte e la cultura locali.</p>
+            </div>
+          </a>
+
+          <!-- Pordenone -->
+          <a href="https://www.turismofvg.it/info-utili/uffici-turistici/udine-infopoint">
+            <div class="bg-gray-100 shadow-lg rounded-lg p-6 hover:scale-105 transition duration-300 min-h-[450px] h-full">
+              <img src="img/Pordenone.jpg" alt="Evento 3" class="w-full h-56 object-cover rounded-lg mb-4" />
+              <h2 class="text-2xl font-semibold mb-2">Pordenone</h2>
+              <p class="text-gray-600" data-translate="territory4">Scopri la bellezza di Pordenone, dove arte, natura e tradizione si incontrano.</p>
+            </div>
+          </a>
+
+          <!-- Cividale -->
+          <a href="https://www.turismofvg.it/information-about/tourist-offices/cividale-del-friuli-tourist-office">
+            <div class="bg-gray-100 shadow-lg rounded-lg p-6 hover:scale-105 transition duration-300 min-h-[450px] h-full">
+              <img src="img/Cividale.jpg" alt="Evento 3" class="w-full h-56 object-cover rounded-lg mb-4" />
+              <h2 class="text-2xl font-semibold mb-2">Cividale</h2>
+              <p class="text-gray-600" data-translate="territory5">Esplora il centro storico e scopri l'arte medievale di Cividale.</p>
+            </div>
+          </a>
+
+          <!-- Aquileia -->
+          <a href="https://www.turismofvg.it/info-utili/uffici-turistici/aquileia-infopoint">
+            <div class="bg-gray-100 shadow-lg rounded-lg p-6 hover:scale-105 transition duration-300 min-h-[450px] h-full">
+              <img src="img/Aquileia.jpg" alt="Evento 3" class="w-full h-56 object-cover rounded-lg mb-4" />
+              <h2 class="text-2xl font-semibold mb-2">Aquileia</h2>
+              <p class="text-gray-600" data-translate="territory6">Visita i siti archeologici e scopri la storia di Aquileia.</p>
+            </div>
+          </a>
+
+          <!-- Grado -->
+          <a href="https://www.turismofvg.it/info-utili/uffici-turistici/grado-infopoint">
+            <div class="bg-gray-100 shadow-lg rounded-lg p-6 hover:scale-105 transition duration-300 min-h-[450px] h-full">
+              <img src="img/Grado.jpg" alt="Evento 3" class="w-full h-56 object-cover rounded-lg mb-4" />
+              <h2 class="text-2xl font-semibold mb-2">Grado</h2>
+              <p class="text-gray-600" data-translate="territory7">Rilassati sulle spiagge dorate e partecipa a eventi culturali unici.</p>
+            </div>
+          </a>
+
+          <!-- Ljubljana -->
+          <a href="https://www.slovenia.info/en/places-to-go/regions/ljubljana-central-slovenia/ljubljana">
+            <div class="bg-gray-100 shadow-lg rounded-lg p-6 hover:scale-105 transition duration-300 min-h-[450px] h-full">
+              <img src="img/Ljubljanski.jpg" alt="Evento 3" class="w-full h-56 object-cover rounded-lg mb-4" />
+              <h2 class="text-2xl font-semibold mb-2">Ljubljana</h2>
+              <p class="text-gray-600" data-translate="territory8">Scopri il fascino della capitale slovena tra cultura e natura.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>    
+
+    <!-- Sezione Prenotazione -->
+    <section id="Prenota" class="min-h-screen p-12 text-center">
+      <h1 class="text-5xl font-bold mb-8" data-translate="title-booking">Prenota il tuo soggiorno</h1>
+      <p class="text-lg" data-translate="booking-description">Compila il modulo per verificare la disponibilità e prenotare la tua camera.</p>
+    
+      <form class="mt-6 max-w-lg mx-auto bg-white p-8 rounded-lg shadow-xl border border-gray-200">
+    
+        <!-- Email -->
+        <div class="mb-5">
+          <label for="email" class="block text-lg font-semibold text-gray-700 mb-2 text-left">Email:</label>
+          <input id="email" type="email" data-translate="emailPlaceholder" placeholder="Inserisci la tua email" required
+            class="w-full p-4 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E1A32A] focus:outline-none transition duration-300" />
+        </div>
+        
+        <!-- Sezione Check-in e Check-out -->
+        <div class="flex flex-wrap md:flex-nowrap w-full gap-4 mb-5">
+          <!-- Data check-in -->
+          <div class="flex-1">
+            <label for="checkin" class="block text-lg font-semibold text-gray-700 mb-2 text-left">Check-in:</label>
+            <input id="checkin" type="date" required
+              class="w-full p-4 border-2 border-gray-300 text-gray-700 rounded-lg focus:ring-2 focus:ring-[#E1A32A] focus:outline-none transition duration-300" />
+          </div>
+        
+          <!-- Data check-out -->
+          <div class="flex-1">
+            <label for="checkout" class="block text-lg font-semibold text-gray-700 mb-2 text-left">Check-out:</label>
+            <input id="checkout" type="date" required
+              class="w-full p-4 border-2 border-gray-300 rounded-lg text-gray-700 focus:ring-2 focus:ring-[#E1A32A] focus:outline-none transition duration-300" />
+          </div>
+        </div>        
+
+        <!-- Selezione Camera -->
+        <div class="relative mb-5">
+          <label for="camera" class="block text-lg font-semibold text-gray-700 mb-2 text-left" data-translate="room-selection">Seleziona la camera:</label>
+          <select id="camera" required
+            class="w-full p-4 pl-5 pr-10 border-2 border-gray-300 text-gray-700 rounded-lg focus:ring-2 focus:ring-[#E1A32A] focus:outline-none transition-all duration-300">
+            <option value="" disabled selected data-translate="select0">Seleziona una camera</option>
+            <option value="camera1" data-translate="select1">Camera Standard - 2 posti letto</option>
+            <option value="camera2" data-translate="select2">Camera Matrimoniale - 2 posto letto</option>
+            <option value="camera3" data-translate="select3">Camera Tripla - 3 posti letto</option>
+          </select>
+        </div>        
+
+        <!-- Messaggio -->
+        <div class="mb-5">
+          <label for="message" class="block text-lg font-semibold text-gray-700 mb-2 text-left" data-translate="message">Richieste speciali:</label>
+          <textarea id="message" data-translate="notePlaceholder" placeholder="Scrivi eventuali richieste speciali"
+            class="w-full p-4 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E1A32A] focus:outline-none transition duration-300 resize-none"></textarea>
+        </div>
+    
+        <!-- Pulsante -->
+        <button type="submit"
+          class="w-full bg-[#E1A32A] text-white font-semibold py-3 rounded-lg hover:bg-[#CF8F1F] transition duration-300 shadow-md" data-translate="send-request">
+          Invia richiesta
+        </button>
+      </form>
+    </section>
+
+    <footer class="flex flex-wrap justify-between items-center p-5 bg-green-950 text-white">
+      <!-- Testo a sinistra -->
+      <div class="flex space-x-6">
+        <a href="#Home" target="_blank" class="hover:text-[#E1A32A] transition">
+          <p>© 2025 Villa Giustina</p>
+        </a>
+        
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=Via+Sauro,+-+Romans+d'Isonzo"
+          target="_blank"
+          class="hover:text-[#E1A32A] transition"
+        >
+          Via Nazario Sauro - Romans d'Isonzo
+        </a>
+      </div>
+
+      <!-- Icone social a destra -->
+      <div class="flex space-x-4">
+        <a href="whatsapp://send?phone=+393534334239&text=Salve,%20contatto%20dal%20sito%20di%20BNB,%20vorrei..." target="_blank">
+          <img alt="whatsapp" src="img/icons8-whatsapp-24.png" class="w-6 h-6"/>
+        </a>
+        <a
+          href="https://mail.google.com/mail/?view=cm&to=alexptomadin@gmail.com&su=Richiesta%20Informazioni&body=Gentile%20Alex%20Tomadin,%0D%0A%0D%0A..."
+          target="_blank"
+        >
+          <img
+            src="img/icons8-gmail-nuovo-24.png"
+            alt="Email"
+            class="w-6 h-6"
+          />
+        </a>
+        <a href="https://www.facebook.com/" target="_blank">
+          <img
+            src="img/icons8-facebook-24.png"
+            alt="Facebook"
+            class="w-6 h-6"
+          />
+        </a>
+        <a href="https://www.instagram.com/" target="_blank">
+          <img
+            src="img/icons8-instagram-24.png"
+            alt="Instagram"
+            class="w-6 h-6"
+          />
+        </a>
+        <a href="https://www.airbnb.it/" target="_blank">
+          <img
+            src="img/icons8-airbnb-24.png"
+            alt="Airbnb"
+            class="w-6 h-6"
+          />
+        </a>
+      </div>
+    </footer>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Inizializzazione del check-in con Flatpickr
+      flatpickr("#checkin", {
+        dateFormat: "d/m/Y",
+        minDate: "today",
+        disableMobile: true,
+        onChange: function(selectedDates) {
+          if (selectedDates.length > 0) {
+            // Calcoliamo la data successiva per il check-out
+            let nextDay = new Date(selectedDates[0]);
+            nextDay.setDate(nextDay.getDate() + 1);
+          
+            // Impostiamo la data minima per il check-out
+            checkoutCalendar.set("minDate", nextDay);
+            checkoutCalendar.setDate(nextDay, true); // Aggiorna il valore di default
+          }
+        }
+      });
+
+      // Inizializzazione del check-out con Flatpickr
+      const checkoutCalendar = flatpickr("#checkout", {
+        dateFormat: "d/m/Y",
+        minDate: "today",
+        disableMobile: true
+      });
+    });
+
+    // Selezioniamo il bottone e il menu
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    // Aggiungiamo un event listener per il click sul bottone
+    menuToggle.addEventListener('click', (event) => {
+      event.stopPropagation(); // Impedisce la propagazione dell'evento
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Funzione per nascondere il menu se l'utente clicca fuori
+    document.addEventListener('click', (event) => {
+      if (!menuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
+        mobileMenu.classList.add('hidden');
+      }
+    });
+
+    // Evita che il click sul menu lo chiuda subito
+    mobileMenu.addEventListener('click', (event) => {
+      event.stopPropagation();
+    });
+
+    // Chiude il menu quando si clicca su un'opzione interna
+    const menuOptions = mobileMenu.querySelectorAll('a'); // Se le opzioni sono <a>, altrimenti usa 'li' o '.classe'
+    menuOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    function precompilaCamera(camera) {
+      document.getElementById('camera').value = camera;
+      window.location.href = "#Prenota"; // Scorri fino alla sezione Prenota
+    }
+
+    function changeLanguage(lang, flagSrc) {
+      document.getElementById('languageText').textContent = lang.toUpperCase();
+      document.getElementById('languageFlag').src = flagSrc;
+      document.getElementById('languageFlag').alt = lang.toUpperCase();
+      document.getElementById('languageMenu').classList.add('hidden'); // Nasconde il menu
+
+      fetch(`translations/${lang}.json`)
+        .then(response => {
+            if (!response.ok) throw new Error("File JSON non trovato");
+            return response.json();
+        })
+        .then(data => {
+          document.querySelectorAll("[data-translate]").forEach(el => {
+            const key = el.getAttribute("data-translate");
+            if (data[key]) {
+              if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+                el.placeholder = data[key]; // Traduci il placeholder
+              } else {
+                el.textContent = data[key];
+              }
+            }
+          });
+        })
+        .catch(error => console.error("Errore nel caricamento della traduzione:", error));
+    }
+
+    // Funzione per mostrare/nascondere il menu a tendina
+    document.getElementById('languageMenuButton').addEventListener('click', function() {
+        const menu = document.getElementById('languageMenu');
+        menu.classList.toggle('hidden');
+    });
+
+    // Funzione per nascondere il menu se l'utente clicca fuori
+    document.addEventListener('click', function(event) {
+        const menu = document.getElementById('languageMenu');
+        const button = document.getElementById('languageMenuButton');
+        if (!menu.contains(event.target) && !button.contains(event.target)) {
+            menu.classList.add('hidden');
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const cookieBanner = document.getElementById("cookie-banner");
+      const acceptCookies = document.getElementById("accept-cookies");
+      const rejectCookies = document.getElementById("reject-cookies");
+
+      if (!localStorage.getItem("cookieConsent")) {
+        cookieBanner.style.display = "block"; // Mostra il banner
+      }
+
+      // Controlla se l'utente ha già espresso una preferenza
+      if (localStorage.getItem("cookieConsent") === "accepted")
+        cookieBanner.style.display = "none";
+      else if (localStorage.getItem("cookieConsent") === "rejected") {
+        cookieBanner.style.display = "none";
+        removeNonEssentialCookies(); // Se rifiutati, rimuoviamo i cookie
+      }
+
+      // Se accettano i cookie
+      acceptCookies.addEventListener("click", function () {
+        localStorage.setItem("cookieConsent", "accepted");
+        cookieBanner.style.display = "none";
+      });
+
+      // Se rifiutano i cookie
+      rejectCookies.addEventListener("click", function () {
+        localStorage.setItem("cookieConsent", "rejected");
+        cookieBanner.style.display = "none";
+        removeNonEssentialCookies(); // Rimuoviamo i cookie traccianti
+      });
+
+      // Funzione per eliminare i cookie non essenziali
+      function removeNonEssentialCookies() {
+        document.cookie.split(";").forEach(function (cookie) {
+        let name = cookie.split("=")[0].trim();
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        });
+        console.log("Cookie non essenziali rimossi!");
+      }
+    });
+  </script>
+</html>
